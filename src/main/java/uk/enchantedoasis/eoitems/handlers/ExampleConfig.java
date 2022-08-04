@@ -1,4 +1,4 @@
-package com.integral.examplemod.handlers;
+package uk.enchantedoasis.eoitems.handlers;
 
 import java.io.File;
 

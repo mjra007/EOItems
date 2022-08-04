@@ -1,0 +1,16 @@
+{
+  "parent": "item/generated",
+  "textures": {
+    "layer0": "eoitems:item/angelickey"
+  },
+  "display": {
+    "thirdperson_righthand": {
+      "position": [15,5,0],
+      "rotation": [90, -180, 135],
+      "scale": [0.5, 0.5, 0.5]
+    },
+    "gui": {
+      "rotation": [180, 0, 0]
+    }
+  }
+}

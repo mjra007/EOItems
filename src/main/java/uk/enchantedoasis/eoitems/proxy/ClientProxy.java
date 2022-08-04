@@ -1,19 +1,17 @@
-package com.integral.examplemod.proxy;
+package uk.enchantedoasis.eoitems.proxy;
 
-import java.util.HashMap;
-import java.util.UUID;
+import uk.enchantedoasis.eoitems.Items.Items;
 
-import net.minecraft.client.Minecraft;
-
-import net.minecraft.client.renderer.entity.Render;
-import net.minecraft.entity.Entity;
 import net.minecraft.entity.player.EntityPlayer;
-import net.minecraft.entity.projectile.EntityArrow;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
-import net.minecraftforge.client.MinecraftForgeClient;
+import net.minecraftforge.client.event.ModelRegistryEvent;
+import net.minecraftforge.fml.common.Mod;
+import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
+import net.minecraftforge.fml.relauncher.Side;
 
+@Mod.EventBusSubscriber(Side.CLIENT)
 public class ClientProxy extends CommonProxy {
 
     public ClientProxy() {
@@ -29,10 +27,10 @@ public class ClientProxy extends CommonProxy {
 
         return null;
     }
-
-    @Override
-    public void registerRenderers() {
-        // NO-OP
+    @SubscribeEvent
+    public static void registerModels(ModelRegistryEvent event) {
+        Items.initModels();
     }
+
 
 }
