@@ -78,5 +78,3 @@ artifacts {
 	archives devJar
 	archives sourcesJar
 }
-
-sourceSets { main { output.resourcesDir = output.classesDir } }
