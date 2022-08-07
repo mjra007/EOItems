@@ -1,13 +1,14 @@
 {
   "parent": "item/generated",
   "textures": {
-    "layer0": "eoitems:item/oasiskey"
+    "layer0": "eoitems:item/oasis_key"
   },
   "display": {
     "thirdperson_righthand": {
       "position": [15,5,0],
-      "rotation": [90, -180, 135],
-      "scale": [0.5, 0.5, 0.5]
+      "rotation": [90, 90, 135],
+      "translation": [0,0,-1.8],
+      "scale": [0.35, 0.35, 0.35]
     },
     "gui": {
       "rotation": [180, 0, 0]

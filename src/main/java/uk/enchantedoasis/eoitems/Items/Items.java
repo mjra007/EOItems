@@ -1,5 +1,6 @@
 package uk.enchantedoasis.eoitems.Items;
 
+import net.minecraft.item.ItemBlock;
 import uk.enchantedoasis.eoitems.CreativeTab;
 import uk.enchantedoasis.eoitems.EOCustomItemsMod;
 import net.minecraftforge.fml.common.registry.GameRegistry;
@@ -8,24 +9,39 @@ import net.minecraftforge.fml.relauncher.SideOnly;
 
 @GameRegistry.ObjectHolder(EOCustomItemsMod.MODID)
 public class Items {
-    @GameRegistry.ObjectHolder("oasiskey")
-    public static OasisKey OasisKey;
+    @GameRegistry.ObjectHolder("oasis_key")
+    public static ItemOasisKey ItemOasisKey;
 
-    @GameRegistry.ObjectHolder("angelickey")
-    public static OasisKey AngelicKey;
+    @GameRegistry.ObjectHolder("angelic_key")
+    public static ItemOasisKey AngelicKey;
 
-    @GameRegistry.ObjectHolder("angelicskullswordclone")
-    public static AngelicSkullSwordClone AngelicSkullSwordClone;
+    @GameRegistry.ObjectHolder("vote_key")
+    public static ItemOasisKey VoteKey;
+    @GameRegistry.ObjectHolder("fallen_angel_sword_clone")
+    public static ItemFallenAngelSwordClone ItemFallenAngelSwordClone;
 
-    @GameRegistry.ObjectHolder("angelicskullsword")
-    public static AngelicSkullSword AngelicSkullSword;
+    @GameRegistry.ObjectHolder("fallen_angel_sword")
+    public static ItemFallenAngelSword ItemFallenAngelSword;
+
+    @GameRegistry.ObjectHolder("fallen_angel_axe")
+    public static ItemFallenAngelAxe ItemFallenAngelAxe;
+
+    @GameRegistry.ObjectHolder("currency")
+    public static ItemBlock ItemCurrency;
+
+    @GameRegistry.ObjectHolder("coin")
+    public static ItemCoin ItemCoin;
+
     public static CreativeTab Tab;
 
     @SideOnly(Side.CLIENT)
     public static void initModels() {
-        OasisKey.initModel();
+        ItemOasisKey.initModel();
         AngelicKey.initModel();
-        AngelicSkullSwordClone.initModel();
-        AngelicSkullSword.initModel();
+        VoteKey.initModel();
+        ItemFallenAngelSwordClone.initModel();
+        ItemFallenAngelSword.initModel();
+        ItemFallenAngelAxe.initModel();
+        ItemCoin.initModel();
     }
 }

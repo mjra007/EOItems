@@ -1,10 +1,9 @@
 package uk.enchantedoasis.eoitems.proxy;
 
+import net.minecraft.block.Block;
+import net.minecraft.item.ItemBlock;
 import uk.enchantedoasis.eoitems.CreativeTab;
-import uk.enchantedoasis.eoitems.Items.AngelicSkullSword;
-import uk.enchantedoasis.eoitems.Items.AngelicSkullSwordClone;
-import uk.enchantedoasis.eoitems.Items.Items;
-import uk.enchantedoasis.eoitems.Items.OasisKey;
+import uk.enchantedoasis.eoitems.Items.*;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.Item;
 import net.minecraft.tileentity.TileEntity;
@@ -14,21 +13,31 @@ import net.minecraftforge.event.RegistryEvent;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 import net.minecraftforge.fml.common.network.IGuiHandler;
+import uk.enchantedoasis.eoitems.blocks.BlockCurrency;
+import uk.enchantedoasis.eoitems.blocks.Blocks;
 
 @Mod.EventBusSubscriber
 public class CommonProxy implements IGuiHandler {
 
     public CommonProxy() {
-        // NO-OP
     }
 
     @SubscribeEvent
     public static void registerItems(RegistryEvent.Register<Item> event) {
         Items.Tab = new CreativeTab();
-        event.getRegistry().register(new OasisKey("oasiskey"));
-        event.getRegistry().register(new OasisKey("angelickey"));
-        event.getRegistry().register(new AngelicSkullSwordClone("angelicskullswordclone"));
-        event.getRegistry().register(new AngelicSkullSword("angelicskullsword"));
+        event.getRegistry().register(new ItemOasisKey("oasis_key"));
+        event.getRegistry().register(new ItemOasisKey("angelic_key"));
+        event.getRegistry().register(new ItemOasisKey("vote_key"));
+        event.getRegistry().register(new ItemFallenAngelSwordClone("fallen_angel_sword_clone"));
+        event.getRegistry().register(new ItemFallenAngelSword("fallen_angel_sword"));
+        event.getRegistry().register(new ItemFallenAngelAxe("fallen_angel_axe"));
+        event.getRegistry().register(new ItemBlock(Blocks.BlockCurrency).setRegistryName("currency").setCreativeTab(Items.Tab));
+        event.getRegistry().register(new ItemCoin("coin"));
+    }
+
+    @SubscribeEvent
+    public static void registerBlocks(RegistryEvent.Register<Block> event) {
+        event.getRegistry().register(new BlockCurrency("currency"));
     }
 
     @Override

@@ -1,7 +1,7 @@
 {
   "parent": "item/handheld",
   "textures": {
-    "layer0": "eoitems:item/angelicskullsword"
+    "layer0": "eoitems:item/fallen_angel_sword_clone"
   },
   "display": {
     "thirdperson_righthand": {

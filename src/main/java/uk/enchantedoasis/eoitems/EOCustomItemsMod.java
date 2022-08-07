@@ -21,6 +21,7 @@ import uk.enchantedoasis.eoitems.Items.Items;
 import uk.enchantedoasis.eoitems.handlers.ExampleConfig;
 import uk.enchantedoasis.eoitems.handlers.GenericEventHandler;
 import uk.enchantedoasis.eoitems.proxy.CommonProxy;
+import uk.enchantedoasis.eoitems.world.gen.OreGenEventHandler;
 
 @Mod(modid = EOCustomItemsMod.MODID, version = EOCustomItemsMod.VERSION, name = EOCustomItemsMod.NAME)
 public class EOCustomItemsMod {
@@ -52,6 +53,7 @@ public class EOCustomItemsMod {
         ExampleConfig.load(event);
         MinecraftForge.EVENT_BUS.register(new GenericEventHandler());
         NetworkRegistry.INSTANCE.registerGuiHandler(this, proxy);
+        MinecraftForge.ORE_GEN_BUS.register(OreGenEventHandler.class);
     }
 
 

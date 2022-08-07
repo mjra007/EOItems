@@ -33,7 +33,7 @@ archivesBaseName = mod_archives_name
 sourceCompatibility = targetCompatibility = compileJava.sourceCompatibility = compileJava.targetCompatibility = '1.8'
 
 minecraft {
-	version = "1.12.2-14.23.5.2847"
+    version = "1.12.2-14.23.5.2847"
     mappings = "stable_39"
 	runDir = "eclipse"
     

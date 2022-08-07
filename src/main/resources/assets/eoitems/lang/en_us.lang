@@ -1,5 +1,10 @@
-itemGroup.eocustomitemstab=EO Custom Items
+itemGroup.eocustomitemstab=EO Items
 
-item.oasiskey.name=Oasis key
-item.angelickey.name=Angelic key
-item.angelicskullsword.name=Angelic Skull Sword
+item.oasis_key.name=Oasis key
+item.angelic_key.name=Angelic key
+item.fallen_angel_sword_clone.name=Fallen Angel Sword
+item.fallen_angel_sword.name=Original Fallen Angel Sword
+item.fallen_angel_axe.name=Fallen Angel Axe
+item.coin.name=Coin
+
+block.currency.name=Money Ore
