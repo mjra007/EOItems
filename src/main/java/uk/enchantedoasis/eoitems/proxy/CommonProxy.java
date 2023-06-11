@@ -2,6 +2,7 @@ package uk.enchantedoasis.eoitems.proxy;
 
 import net.minecraft.block.Block;
 import net.minecraft.item.ItemBlock;
+import net.minecraftforge.fml.common.registry.GameRegistry;
 import uk.enchantedoasis.eoitems.CreativeTab;
 import uk.enchantedoasis.eoitems.Items.*;
 import net.minecraft.entity.player.EntityPlayer;
@@ -15,6 +16,7 @@ import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 import net.minecraftforge.fml.common.network.IGuiHandler;
 import uk.enchantedoasis.eoitems.blocks.BlockCurrency;
 import uk.enchantedoasis.eoitems.blocks.Blocks;
+import uk.enchantedoasis.eoitems.blocks.CurrencyTileEntity;
 
 @Mod.EventBusSubscriber
 public class CommonProxy implements IGuiHandler {
@@ -38,6 +40,7 @@ public class CommonProxy implements IGuiHandler {
     @SubscribeEvent
     public static void registerBlocks(RegistryEvent.Register<Block> event) {
         event.getRegistry().register(new BlockCurrency("currency"));
+        GameRegistry.registerTileEntity(CurrencyTileEntity.class, "eoitems:currency");
     }
 
     @Override

@@ -4,14 +4,16 @@ buildscript {
         maven {
             name = "forge"
             url = "https://maven.minecraftforge.net/"
-        }       
+        }
 		maven {
             name = "github"
             url = "https://github.com/juanmuscaria/maven/raw/master"
         }
     }
     dependencies {
-        classpath 'net.minecraftforge.gradle:ForgeGradle2:[2.3-1.0.0-SNAPSHOT,)'
+        classpath("com.anatawa12.forge:ForgeGradle:2.3-1.0.+") {
+            changing = true
+        }
     }
 }
 
@@ -19,6 +21,9 @@ repositories {
 	flatDir {
 		dirs 'deps'
 	}
+    maven {
+        url = 'https://dl.cloudsmith.io/public/geckolib3/geckolib/maven/'
+    }
 }
 
 apply plugin: 'eclipse'
@@ -35,7 +40,7 @@ sourceCompatibility = targetCompatibility = compileJava.sourceCompatibility = co
 minecraft {
     version = "1.12.2-14.23.5.2847"
     mappings = "stable_39"
-	runDir = "eclipse"
+	runDir = "run"
     
 	replace '@VERSION@', project.version
 	// makeObfSourceJar = false
@@ -62,6 +67,8 @@ processResources {
 
 dependencies {
 	compile name: 'Baubles-1.12-1.5.2-dev'
+    implementation 'software.bernie.geckolib:geckolib-forge-1.12.2:3.0.31'
+
 }
 
 task devJar(type: Jar) {
@@ -78,3 +85,7 @@ artifacts {
 	archives devJar
 	archives sourcesJar
 }
+
+//sourceSets {
+//    main { output.resourcesDir = output.classesDir }
+//}

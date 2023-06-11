@@ -3,6 +3,7 @@ package uk.enchantedoasis.eoitems;
 import net.minecraft.client.renderer.block.model.ModelResourceLocation;
 import net.minecraftforge.client.model.ModelLoader;
 import net.minecraftforge.common.MinecraftForge;
+import net.minecraftforge.fml.client.registry.RenderingRegistry;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.Mod.EventHandler;
 import net.minecraftforge.fml.common.SidedProxy;
@@ -17,7 +18,13 @@ import net.minecraftforge.fml.relauncher.Side;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
+import software.bernie.example.client.renderer.entity.BikeGeoRenderer;
+import software.bernie.example.entity.BikeEntity;
+import software.bernie.geckolib3.GeckoLib;
+import sun.java2d.pipe.RenderingEngine;
 import uk.enchantedoasis.eoitems.Items.Items;
+import uk.enchantedoasis.eoitems.blocks.BlockCurrency;
+import uk.enchantedoasis.eoitems.blocks.CurrencyTileEntity;
 import uk.enchantedoasis.eoitems.handlers.ExampleConfig;
 import uk.enchantedoasis.eoitems.handlers.GenericEventHandler;
 import uk.enchantedoasis.eoitems.proxy.CommonProxy;
@@ -38,9 +45,11 @@ public class EOCustomItemsMod {
 
     public static final Logger logger = LogManager.getLogger("ExampleMod");
 
+    public EOCustomItemsMod(){
+    }
+
     @EventHandler
     public void load(FMLInitializationEvent event) {
-
     }
 
     @EventHandler
@@ -51,9 +60,13 @@ public class EOCustomItemsMod {
     @EventHandler
     public void preInit(FMLPreInitializationEvent event) {
         ExampleConfig.load(event);
+        // The geckolib documentation states this should be called in the constructor that doesn't seem to work properly in 1.12.2
+        GeckoLib.initialize();
         MinecraftForge.EVENT_BUS.register(new GenericEventHandler());
         NetworkRegistry.INSTANCE.registerGuiHandler(this, proxy);
         MinecraftForge.ORE_GEN_BUS.register(OreGenEventHandler.class);
+        MinecraftForge.EVENT_BUS.register(CurrencyTileEntity.class);
+
     }
 
 

@@ -1,5 +1,6 @@
 package uk.enchantedoasis.eoitems.proxy;
 
+import net.minecraftforge.fml.client.registry.ClientRegistry;
 import uk.enchantedoasis.eoitems.Items.Items;
 
 import net.minecraft.entity.player.EntityPlayer;
@@ -10,7 +11,10 @@ import net.minecraftforge.client.event.ModelRegistryEvent;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 import net.minecraftforge.fml.relauncher.Side;
+import uk.enchantedoasis.eoitems.blocks.CurrencyModel;
+import uk.enchantedoasis.eoitems.blocks.CurrencyTileRenderer;
 import uk.enchantedoasis.eoitems.blocks.Blocks;
+import uk.enchantedoasis.eoitems.blocks.CurrencyTileEntity;
 
 @Mod.EventBusSubscriber(Side.CLIENT)
 public class ClientProxy extends CommonProxy {
@@ -32,7 +36,10 @@ public class ClientProxy extends CommonProxy {
     public static void registerModels(ModelRegistryEvent event) {
         Items.initModels();
         Blocks.initModels();
+
+        ClientRegistry.bindTileEntitySpecialRenderer(CurrencyTileEntity.class, new CurrencyTileRenderer(new CurrencyModel()));
     }
+
 
 
 }
