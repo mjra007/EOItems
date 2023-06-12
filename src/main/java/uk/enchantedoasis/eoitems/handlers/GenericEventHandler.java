@@ -5,9 +5,8 @@ import net.minecraft.entity.player.EntityPlayerMP;
 import net.minecraftforge.client.event.RenderPlayerEvent;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 import net.minecraftforge.fml.common.gameevent.PlayerEvent;
-import uk.enchantedoasis.eoitems.HeartsParticleAnimation;
-import uk.enchantedoasis.eoitems.HeartParticlesModel;
-import uk.enchantedoasis.eoitems.HeartParticlesRender;
+import software.bernie.geckolib3.renderers.geo.GeoArmorRenderer;
+import uk.enchantedoasis.eoitems.*;
 
 public class GenericEventHandler {
 
@@ -26,10 +25,16 @@ public class GenericEventHandler {
     @SubscribeEvent
     public void onPlayerRender(RenderPlayerEvent.Pre event) {
         if(!added){
-            HeartsParticleAnimation animation = new HeartsParticleAnimation( new HeartParticlesModel());
-            event.getRenderer().addLayer(new HeartParticlesRender(event.getRenderer(),animation.model, animation));
+//            GenericHeartAnimation animation = new GenericHeartAnimation( new PlayerLayerModel("heartsmodel.geo.json","hearts.animation.json","heart.png"));
+//            event.getRenderer().addLayer(new PlayerRenderLayer<GenericHeartAnimation>(event.getRenderer(), animation, animation.<GenericHeartAnimation>getModel()));
+//            PlayerLayerAnimation.registerAnimation(animation.getClass(), animation);
             added = true;
-
+            OwlAnimation animation2 = new OwlAnimation( new PlayerLayerModel("owl.geo.json","owl.animation.json","owl.png"));
+            PlayerLayerAnimation.registerAnimation(animation2.getClass(), animation2);
+            event.getRenderer().addLayer(new PlayerRenderLayer<OwlAnimation>(event.getRenderer(), animation2, animation2.<OwlAnimation>getModel()));
+//            ElephantAnimation animation3 = new ElephantAnimation( new PlayerLayerModel("elephant.geo.json","elephant.animation.json","elephant.png"));
+//            event.getRenderer().addLayer(new PlayerRenderLayer<ElephantAnimation>(event.getRenderer(), animation3, animation3.<ElephantAnimation>getModel()));
+//            PlayerLayerAnimation.registerAnimation(animation3.getClass(), animation3);
         }
     }
 
